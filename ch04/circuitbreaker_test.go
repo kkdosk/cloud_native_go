@@ -118,7 +118,8 @@ func TestCircuitBreaker(t *testing.T) {
 
 func TestCircuitBreakerDataRace(t *testing.T) {
 	ctx := context.Background()
-
+	var threshold time.Time
+	t.Log(time.Now().Before(threshold))
 	circuit := waitAndContinue()
 	breaker := Breaker(circuit, 1)
 
